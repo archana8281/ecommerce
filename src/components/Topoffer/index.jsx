@@ -4,7 +4,7 @@ import { Offer } from "../../utils/offer";
 function OFFER() {
   return (
     <div>
-      <div className="container">
+      <div className="container" id="topoffer_section" >
         <h3>Top Offer</h3>
         <hr className="top-line" />
         <div className="top-list">

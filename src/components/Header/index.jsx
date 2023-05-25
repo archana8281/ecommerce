@@ -6,7 +6,7 @@ function Header (){
         <>
         <div className="container"> 
         <div className="header">
-        <a href="/"><img src="images/shop.png" alt="loading" /></a>
+        <a href="/"><img src="/images/shop.png" alt="loading" /></a>
         <input type="search" name="search" id="" placeholder="  Serch for products"/>
         <div className="fa"><FontAwesomeIcon icon={faUser} /></div>
         <div className="fa"><FontAwesomeIcon icon={faCartShopping} /></div>

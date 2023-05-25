@@ -5,7 +5,7 @@ import { Carousel } from "responsive-carousel-react";
 function Banner() {
   return (
     <section class="regular slider">
-      <Carousel autoPlay={true}>
+      <Carousel   autoPlay={true}>
         <div className="banner">
           <img src="images/banner.png" alt="" className="ban" />
           <div className="ban-con">

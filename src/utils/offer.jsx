@@ -16,17 +16,17 @@ const Offer = [
     },
     {
         image : "/images/mobile.png",
-        title : "Women's Wear",
+        title : "Smart Phone",
         off   : "Min. 50% Off",
     },
     {
         image : "/images/Ellipse 19.png",
-        title : "Women's Wear",
+        title : "Cosmetics",
         off   : "Min. 50% Off",
     },
     {
         image : "/images/appliance.png",
-        title : "Women's Wear",
+        title : "Home appliance",
         off   : "Min. 50% Off",
     },
 ]

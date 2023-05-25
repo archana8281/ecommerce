@@ -56,11 +56,14 @@ input[type=search] {
     list-style-type: none;
     align-items: center;
 }
+.nav .ul-itm li:hover{
+    background-color: #DB0101;;
+}
 
 .itm{
     width: 141.88px;
     position: relative;
-    top: 3.2px;
+    top: 4.2px;
     padding: 13px;
     height: 50.29px;
     box-sizing: border-box;
@@ -133,6 +136,40 @@ h3{
 }
 .item-content h6{
 margin: 0;
+}
+.footer{
+    height: 391px;
+width: 100%;
+background: #DD0101;
+}
+.foot-content{
+    margin-top: 30px ;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    color: white;
+}
+.foot-content-part ul{
+    list-style-type: none;
+    padding-left: 0px;
+}
+ a{
+    text-decoration: none;
+    color: white;
+}
+.foot-content-part ul li a:hover{
+    color: rgb(15, 16, 17);
+}
+.details{
+    text-align: center;
+    box-sizing: border-box;
+    height: 300px;
+    padding: 80px;
+    font-size: 17px;
+    line-height: 24px;
+}
+.details-head{
+    color: red;
+    margin: 0;
 }
 
 
