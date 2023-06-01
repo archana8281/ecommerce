@@ -1,7 +1,7 @@
 import Banner from "../components/Banner";
+import Brand from "../components/Brand";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import OFFER from "../components/Topoffer";
 import Navbar from "../components/navbar";
 
 
@@ -12,8 +12,7 @@ function Home(){
        <Header/>
         <Navbar/>
          < Banner/>
-         <OFFER/>
-         
+         <Brand/>
          <Footer/>
         </>
     )
