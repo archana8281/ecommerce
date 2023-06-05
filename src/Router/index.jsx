@@ -5,6 +5,8 @@ import faq from "../pages/FAQ/faq";
 import Collection from "../pages/Topoffer/top";
 import info from "../pages/detail/detail";
 import Home from "../pages/home";
+import LOGIN from "../pages/Authent/authent";
+import Cart from "../pages/Form/Add cart/cartpg";
 
 
 const ROUTER = [
@@ -35,6 +37,14 @@ const ROUTER = [
     {
         url :'/detail',
         component : info,
+    },
+    {
+        url :'/login',
+        component : LOGIN,
+    },
+    {
+        url :'/cartpg',
+        component : Cart,
     }
 ]
 

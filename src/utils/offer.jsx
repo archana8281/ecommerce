@@ -57,4 +57,33 @@ const RVIEW = [
         adout : "Hot Wheels, Barbie & more" ,
     }
 ]
-export {Offer , RVIEW};
+
+const CART = [
+    {
+        image :"/images/watch.png",
+        text :"Price (1 item)",
+        head :"hala 2022 HL-2022-DTL Digital Watch - For Men",
+        stock : "In stock",
+        price:"₹1,499  ₹2998 50% Off",
+        deli : "Delivery by Wed Aug 10 | Free₹40",
+        select :"Qty",
+        opt1:1,
+        opt2:2,
+        opt3:3,
+
+    },
+    {
+        image :"/images/tshirt.png",
+        text :"Price (2 item)",
+        head :"Printed Men Round Neck Dark Blue T-Shirt",
+        stock : "In stock",
+        price:"₹1,499  ₹2998 50% Off",
+        deli : "Delivery by Wed Aug 10 | Free₹40",
+        select :"Qty",
+        opt1:1,
+        opt2:2,
+        opt3:3,
+
+    }
+]
+export {Offer , RVIEW , CART};
