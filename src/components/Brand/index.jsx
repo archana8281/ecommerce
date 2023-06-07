@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Offer, RVIEW } from "../../utils/offer";
 
+
 function Brand() {
   const [brandItem, setbrandItem] = useState();
   const [view, setView] = useState(false);

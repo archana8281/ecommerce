@@ -7,6 +7,8 @@ import info from "../pages/detail/detail";
 import Home from "../pages/home";
 import LOGIN from "../pages/Authent/authent";
 import Cart from "../pages/Form/Add cart/cartpg";
+import Add from "../pages/Form/Address/add";
+import PAY from "../pages/Form/Pay/pay";
 
 
 const ROUTER = [
@@ -45,6 +47,15 @@ const ROUTER = [
     {
         url :'/cartpg',
         component : Cart,
+    }
+    ,
+    {
+        url :'/add',
+        component : Add,
+    },
+    {
+        url :'/pay',
+        component : PAY,
     }
 ]
 
