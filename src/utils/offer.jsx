@@ -97,15 +97,29 @@ const STATUS = [
     },
     {
         image: "/images/icons/circle.png",
-        title:"",
-    },
-    {
-        image: "/images/icons/circle.png",
         title:"Delivery & Payement",
     },
     {
         image: "/images/icons/circle.png",
-        title:"Coplete Payement",
+        title:"Complete Payement",
     },
 ]
-export {Offer , RVIEW , CART , STATUS};
+const DETA = [
+    {
+        image: "/images/w1.png",
+       
+    },
+    {
+        image: "/images/w2.png",
+       
+    },
+    {
+        image: "/images/w3.png",
+        
+    },
+    {
+        image: "/images/w4.png",
+        
+    },
+]
+export {Offer , RVIEW , CART , STATUS , DETA};

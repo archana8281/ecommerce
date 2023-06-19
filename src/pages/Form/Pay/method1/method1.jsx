@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card() {
+function Card({handleChange}) {
   return (
     <div className="paysection">
       <label htmlFor="fname" className="login-head">
@@ -58,7 +58,12 @@ function Card() {
           </select>
         </div>
       </div>
-      <button>Pay ₹1,499 </button>
+      <div className="p-btn">
+        <a href="/fin">
+          <button onClick={()=>{            
+            handleChange('mmmm')}}>Pay ₹1,499 </button>
+        </a>
+      </div>
     </div>
   );
 }

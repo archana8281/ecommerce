@@ -37,7 +37,9 @@ function Cart() {
             <h3>Price Details</h3>
             <div className="cart-content-rig-box">
               <Price />
-              <a href="/add"><button >Place to Order</button></a>
+              <a href="/add">
+                <button>Place to Order</button>
+              </a>
             </div>
           </div>
         </div>

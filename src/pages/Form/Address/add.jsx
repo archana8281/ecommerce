@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../../../components/Footer";
+import Statusbar from "../../../components/statusbar/status";
 
 function Add() {
   return (
@@ -10,6 +11,7 @@ function Add() {
         </a>
         <hr />
       </div>
+      <Statusbar/>
       <div className="container2">
         <h3>Select a delivery address</h3>
         <h4>Add a new address</h4>

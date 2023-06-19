@@ -7,6 +7,7 @@ export default function info() {
     <>
       <Header />
       <Navbar />
+      
       <div className="details">
         <h2 className="details-head">
           <u>Information</u>
@@ -23,6 +24,7 @@ export default function info() {
           866-437-9078 for assistance.
         </p>
       </div>
+    
       <Footer />
     </>
   );

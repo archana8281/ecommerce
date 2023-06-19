@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Offer, RVIEW } from "../../utils/offer";
+import { useNavigate } from "react-router-dom";
 
 
 function Brand() {
+  const navigate = useNavigate();
   const [brandItem, setbrandItem] = useState();
   const [view, setView] = useState(false);
   const show = brandItem?.slice( 0,8);
@@ -51,7 +53,7 @@ setView(!view);
             <hr className="deal-line" />
             <div className="deal-row">
               {RVIEW.map((item1) => (
-                <div className="deal-item">
+                <div className="deal-item" >
                   <img src={item1.image} alt="loading" />
                   <div className="deal-item-content">
                     <div>{item1.title}</div>
@@ -69,7 +71,9 @@ setView(!view);
             {show &&
               show?.length !== 0 &&
               show.map((item) => (
-                <div className="deal-item">
+                <div className="deal-item" onClick={()=>{
+                  navigate(`/detailpg/${item?.fields?.text?.stringValue}?id=${item?.fields?.id?.integerValue}`)
+                  }}>
                   <img
                     src={
                       item?.fields?.image?.arrayValue?.values[0]?.stringValue
@@ -86,7 +90,9 @@ setView(!view);
 
               { view &&
                  show1.map((item)=>(
-                  <div className="deal-item">
+                  <div className="deal-item" onClick={()=>{
+                    navigate(`/detailpg/${item?.fields?.text?.stringValue}?id=${item?.fields?.id?.integerValue}`)
+                    }}>
                   <img
                     src={
                       item?.fields?.image?.arrayValue?.values[0]?.stringValue
