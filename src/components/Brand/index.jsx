@@ -12,6 +12,7 @@ function Brand() {
   const show1 = brandItem?.slice( 8);
   useEffect(() => {
     const brandFetch = async () => {
+      
       const response = await fetch(
         `https://firestore.googleapis.com/v1/projects/ecommerce-79a2b/databases/(default)/documents/products`
       );

@@ -122,4 +122,26 @@ const DETA = [
         
     },
 ]
-export {Offer , RVIEW , CART , STATUS , DETA};
+const COLOR = [
+    {
+        image: "/images/detailitems/black.png",
+       
+    },
+    {
+        image: "/images/detailitems/red.png",
+       
+    },
+    {
+        image: "/images/detailitems/green.png",
+        
+    },
+    {
+        image: "/images/detailitems/brown.png",
+        
+    },
+    {
+        image: "/images/detailitems/blue.png",
+        
+    }
+]
+export {Offer , RVIEW , CART , STATUS , DETA ,COLOR};

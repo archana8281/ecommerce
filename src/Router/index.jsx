@@ -62,7 +62,7 @@ const ROUTER = [
     component: Finial,
   },
   {
-    url: "/detailpg/*",
+    url: "/detailpg/:productname",
     component: Index,
   }
 ];
