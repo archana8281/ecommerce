@@ -10,6 +10,7 @@ function Brand() {
   const [view, setView] = useState(false);
   const show = brandItem?.slice( 0,8);
   const show1 = brandItem?.slice( 8);
+  const detailView = JSON.parse(localStorage.getItem('recentlyview'));
   useEffect(() => {
     const brandFetch = async () => {
       
@@ -26,8 +27,9 @@ function Brand() {
   const toggleView =()=>{
 setView(!view);
   }
-  console.log({ show1 });
-  console.log({ brandItem });
+  // console.log({ show1 });
+  // console.log({ brandItem });
+   console.log({ detailView });
   return (
     <>
       <div>
@@ -53,7 +55,7 @@ setView(!view);
             <h3>Recently Viewed Brand</h3>
             <hr className="deal-line" />
             <div className="deal-row">
-              {RVIEW.map((item1) => (
+              {/* {RVIEW.map((item1) => (
                 <div className="deal-item" >
                   <img src={item1.image} alt="loading" />
                   <div className="deal-item-content">
@@ -61,8 +63,18 @@ setView(!view);
                     <h4>{item1.off}</h4>
                     <div>{item1.adout}</div>
                   </div>
+                </div> 
+              ))}*/}
+  {detailView.map((item1) => (
+<div className="deal-item" >
+                  <img src={item1?.image?.arrayValue?.values[0]?.stringValue} alt="loading" />
+                  <div className="deal-item-content">
+                    <div>{item1?.text?.stringValue}</div>
+                    <h4>{item1?.offer?.stringValue}</h4>
+                    <div>{item1?.description?.stringValue}</div>
+                  </div>
                 </div>
-              ))}
+                ))}
             </div>
           </div>
 

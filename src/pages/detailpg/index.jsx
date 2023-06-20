@@ -2,13 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { DETA, COLOR ,RVIEW} from "../../utils/offer";
+import { DETA, COLOR, RVIEW } from "../../utils/offer";
 import { useSearchParams, useParams } from "react-router-dom";
 
 function Index() {
   const [brandItem, setbrandItem] = useState();
   let [searchParams, setSearchParams] = useSearchParams();
   let { id } = useParams();
+  // localStorage.setItem("recentlyview", JSON.stringify([brandItem]));
 
   useEffect(() => {
     const brandFetch = async () => {
@@ -17,15 +18,26 @@ function Index() {
           "id"
         )}`
       );
-      const data = await response.json();
-      setbrandItem(data.fields);
+      const current = await response.json();
+      setbrandItem(current.fields);
+      // console.log(current.fields);
+      let recent = JSON.parse(localStorage.getItem("recentlyview")) ?? [];
+      const check = recent.some(
+        (item) => item.id.integerValue === current.fields.id.integerValue
+      );
+      // console.log({ check });
+      // console.log({ recent });
+      if (check == false) {
+        recent.push(current.fields);
+        localStorage.setItem("recentlyview", JSON.stringify(recent));
+      }
+
+      // console.log({ local: localStorage.getItem("recentlyview") });
     };
     brandFetch();
   }, []);
-  console.log({
-    brandItem: brandItem?.image?.arrayValue?.values[0]?.stringValue,
-  });
-  console.log({ id, searchParams: searchParams.get("id") });
+
+  // console.log({ id, searchParams: searchParams.get("id") });
   return (
     <div>
       <Header />
@@ -43,7 +55,26 @@ function Index() {
                 <img src={item.image} alt="loading" />
               ))}
             </div>
+            <h4>Product Ratings & Reviews</h4>
+            <div className="star-box">
+              <h2> 3.9 </h2>
+              <div><img src="/images/detailitems/Star 2.png" alt="loading" /></div>
+              <div class="bar-text">
+                <p>Excellent</p>
+                <p>Very Good</p>
+                <p>Average</p>
+                <p>Poor</p>
+              </div>
+              <div class="bar">
+                <div class="bar-stick-1"></div>
+                <div class="bar-stick-2"></div>
+                <div class="bar-stick-3"></div>
+                <div class="bar-stick-4"></div>
+                <div class="bar-stick-5"></div>
+              </div>
+            </div>
           </div>
+
           <div className="detailpg-rig">
             <p>
               {brandItem?.text?.stringValue}
@@ -95,6 +126,7 @@ function Index() {
               Usually delivered in 7 days? Enter pincode for exact delivery
               dates/charges View Details
             </p>
+
             <button className="btn">Add to Cart</button>
             <button className="btn2">Buy Now</button>
           </div>
@@ -108,7 +140,7 @@ function Index() {
             <hr className="deal-line" />
             <div className="deal-row">
               {RVIEW.map((item1) => (
-                <div className="deal-item" >
+                <div className="deal-item">
                   <img src={item1.image} alt="loading" />
                   <div className="deal-item-content">
                     <div>{item1.title}</div>
@@ -119,8 +151,8 @@ function Index() {
               ))}
             </div>
           </div>
-          </div>
-          </div>
+        </div>
+      </div>
       <Footer />
     </div>
   );
