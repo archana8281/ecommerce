@@ -12,23 +12,18 @@ function Cart() {
     setCartview(JSON.parse(localStorage.getItem("cartview")));
   }, [cartView]);
 
-  // const cartView = JSON.parse(localStorage.c));
-  // console.log({ cartView });
-  const cartOut = (index) => {
-    alert(index);
-    console.log(cartView);
-    if (index > -1) {
-      let cartcut = cartView.splice(index, 1);
+  const cartOut = (indexVal) => {
+    if (indexVal > -1) {
+      let cartcut = cartView.filter((val,index)=>index !== indexVal);
       setCartview(cartcut);
       localStorage.setItem("cartview", JSON.stringify(cartcut));
     }
-    console.log(cartView);
   };
 
   return (
     <div>
       <Header />
-      {console.log({ cartView })}
+      {/* {console.log({ cartView })} */}
       <div className="container">
         <div className="cart-content">
           <div className="cart-content-left">
@@ -55,9 +50,9 @@ function Cart() {
                   </div>
                   <div className="left-box-detail">
                     <p>Price (1 item)</p>
-                    <h4>{item.text.stringValue}</h4>
+                    <h5>{item.text.stringValue}</h5>
                     <p>In stock</p>
-                    <h4>{item.price.stringValue}</h4>
+                    <h5>{item.price.stringValue}</h5>
                     <p>Delivery by Wed Aug 10 | Free₹40</p>
                     <select name="" id="">
                       <option value="0">Qty</option>

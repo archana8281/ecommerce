@@ -13,11 +13,12 @@ function Index() {
   let { id } = useParams();
   const addCart = () => {
     navigate("/cartpg");
-    let array = JSON.parse(localStorage.getItem("cartview")) ?? [];
-    array.push(brandItem);
-    localStorage.setItem("cartview", JSON.stringify(array));
-  };
+    let array = JSON.parse(localStorage.getItem("cartview"))?? [];
+    array.unshift(brandItem);
+    localStorage.setItem("cartview", JSON.stringify(array));console.log({array})
 
+  };
+  
   useEffect(() => {
     const brandFetch = async () => {
       const response = await fetch(
@@ -33,7 +34,7 @@ function Index() {
       const check = recent.some(
         (item) => item.id.integerValue === current.fields.id.integerValue
       );
-      // console.log({ check });
+      // console.log({ brandItem });
       // console.log({ recent });
       if (check == false) {
         recent.unshift(current.fields);
