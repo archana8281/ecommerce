@@ -64,7 +64,11 @@ const ROUTER = [
   {
     url: "/detailpg/:productname",
     component: Index,
-  }
+  },
+  // {
+  //   url:"/cartpg",
+  //   component: Cart
+  // }
 ];
 
 export { ROUTER };

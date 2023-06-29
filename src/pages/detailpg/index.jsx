@@ -3,13 +3,20 @@ import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { DETA, COLOR, RVIEW } from "../../utils/offer";
-import { useSearchParams, useParams } from "react-router-dom";
+import { useSearchParams, useParams, useNavigate } from "react-router-dom";
 
 function Index() {
+  const navigate = useNavigate();
   const [brandItem, setbrandItem] = useState();
+
   let [searchParams, setSearchParams] = useSearchParams();
   let { id } = useParams();
-  // localStorage.setItem("recentlyview", JSON.stringify([brandItem]));
+  const addCart = () => {
+    navigate("/cartpg");
+    let array = JSON.parse(localStorage.getItem("cartview")) ?? [];
+    array.push(brandItem);
+    localStorage.setItem("cartview", JSON.stringify(array));
+  };
 
   useEffect(() => {
     const brandFetch = async () => {
@@ -21,6 +28,7 @@ function Index() {
       const current = await response.json();
       setbrandItem(current.fields);
       // console.log(current.fields);
+
       let recent = JSON.parse(localStorage.getItem("recentlyview")) ?? [];
       const check = recent.some(
         (item) => item.id.integerValue === current.fields.id.integerValue
@@ -28,8 +36,11 @@ function Index() {
       // console.log({ check });
       // console.log({ recent });
       if (check == false) {
-        recent.push(current.fields);
-        localStorage.setItem("recentlyview", JSON.stringify(recent));
+        recent.unshift(current.fields);
+        localStorage.setItem(
+          "recentlyview",
+          JSON.stringify(recent.slice(0, 4))
+        );
       }
 
       // console.log({ local: localStorage.getItem("recentlyview") });
@@ -57,10 +68,15 @@ function Index() {
             </div>
             <h4>Product Ratings & Reviews</h4>
             <div className="star-box">
-              <h2> 3.9 </h2>
-              <div><img src="/images/detailitems/Star 2.png" alt="loading" /></div>
+              <div>
+                {" "}
+                <h2> 3.9 </h2>
+              </div>
+              <div>
+                <img src="/images/detailitems/Star 2.png" alt="loading" />
+              </div>
               <div class="bar-text">
-                <p>Excellent</p>
+                <p>Excellent </p>
                 <p>Very Good</p>
                 <p>Average</p>
                 <p>Poor</p>
@@ -80,12 +96,10 @@ function Index() {
               {brandItem?.text?.stringValue}
               {brandItem?.description?.stringValue}
               {brandItem?.offer?.stringValue}
-              {/* ID116 Smart Watch for Womens, Bluetooth Smartwatch Touch Screen
-              Bluetooth Smart Watches for Android iOS Phones Wrist Phone Watch
-              with SIM Card Slot & Camera,Women Men */}
             </p>
             <div className="detail-am">
-              <h3>₹1,4998</h3> <div className="amt"> ₹23,99.00 </div>
+              <h3> {brandItem?.price?.stringValue}</h3>{" "}
+              <div className="amt"> ₹23,99.00 </div>
               <span>40% off</span>
             </div>
             <b> color</b>
@@ -127,7 +141,9 @@ function Index() {
               dates/charges View Details
             </p>
 
-            <button className="btn">Add to Cart</button>
+            <button className="btn" onClick={addCart}>
+              Add to Cart
+            </button>
             <button className="btn2">Buy Now</button>
           </div>
         </div>
@@ -140,7 +156,14 @@ function Index() {
             <hr className="deal-line" />
             <div className="deal-row">
               {RVIEW.map((item1) => (
-                <div className="deal-item">
+                <div
+                  className="deal-item"
+                  onClick={() => {
+                    navigate(
+                      `/detailpg/${item1?.text?.stringValue}?id=${item1?.id?.integerValue}`
+                    );
+                  }}
+                >
                   <img src={item1.image} alt="loading" />
                   <div className="deal-item-content">
                     <div>{item1.title}</div>

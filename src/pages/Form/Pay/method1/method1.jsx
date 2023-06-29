@@ -34,7 +34,7 @@ function Card({handleChange}) {
         <div className="one">
           <label htmlFor="mname" className="login-head">
             Year
-          </label>
+          </label>         
           <select name="" class="select-optiion">
             <option value="">2023</option>
             <option value="">2022</option>
@@ -50,12 +50,7 @@ function Card({handleChange}) {
           <label for="phone" className="login-head">
             Cvv
           </label>
-          <select name="" class="select-optiion">
-            <option value="">2012</option>
-            <option value="">2011</option>
-            <option value="">2010</option>
-            <option value="">2019</option>
-          </select>
+          <input type="number" name="cvv" class="select-optiion"/>
         </div>
       </div>
       <div className="p-btn">

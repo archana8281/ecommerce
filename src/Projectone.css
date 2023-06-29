@@ -295,8 +295,10 @@ h4 {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   column-gap: 57px;
+  margin-bottom: 30px;
 }
 .cart-content-left-box {
+  position: relative;
   box-sizing: border-box;
   width: 750px;
   height: 265px;
@@ -304,13 +306,27 @@ h4 {
   border: 1px solid #d7d7d7;
   padding: 35px;
   margin-bottom: 20px;
-  display: flex;
-  column-gap: 83px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
+.cart-content-left-box:hover {
+  border: 2px solid#dd0101;
+}
+.cart-content-left-box-detail {
+  display: flex;
+  column-gap: 83px;
+}
+.cart-close {
+  background: none;
+  color: black;
+  border: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-weight: 600;
+}
 .left-box-detail p,
-h5 {
+h4 {
   margin-top: 0px;
   margin-bottom: 15px;
 }
@@ -548,6 +564,15 @@ h5 {
   border-radius: 6px;
   border: none;
   margin: 20px;
+}
+.star-box {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.bar {
+  width: 51%;
+  margin-top: 25px;
 }
 .bar-stick-1 {
   width: 100%;

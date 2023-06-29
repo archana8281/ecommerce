@@ -1,34 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import { CART } from "../../../utils/offer";
+import { useNavigate } from "react-router-dom";
 import Price from "../../../components/price";
 
 function Cart() {
+  const navigate = useNavigate();
+  const [cartView, setCartview] = useState();
+
+  useEffect(() => {
+    setCartview(JSON.parse(localStorage.getItem("cartview")));
+  }, [cartView]);
+
+  // const cartView = JSON.parse(localStorage.c));
+  // console.log({ cartView });
+  const cartOut = (index) => {
+    alert(index);
+    console.log(cartView);
+    if (index > -1) {
+      let cartcut = cartView.splice(index, 1);
+      setCartview(cartcut);
+      localStorage.setItem("cartview", JSON.stringify(cartcut));
+    }
+    console.log(cartView);
+  };
+
   return (
     <div>
       <Header />
+      {console.log({ cartView })}
       <div className="container">
         <div className="cart-content">
           <div className="cart-content-left">
             <h3>Shop Cart</h3>
-            {CART.map((item) => (
+            {cartView?.map((item, index) => (
               <div className="cart-content-left-box">
-                <div className="left-box-img">
-                  <img src={item.image} alt="loading" />
-                </div>
-                <div className="left-box-detail">
-                  <p>{item.text}</p>
-                  <h5>{item.head}</h5>
-                  <p>{item.stock}</p>
-                  <h5>{item.price}</h5>
-                  <p>{item.deli}</p>
-                  <select name="" id="">
-                    <option value="0">{item.select}</option>
-                    <option value="1">{item.opt1}</option>
-                    <option value="2">{item.opt2}</option>
-                    <option value="3">{item.opt3}</option>
-                  </select>
+                {" "}
+                <button className="cart-close" onClick={() => cartOut(index)}>
+                  &#x2715;
+                </button>
+                <div
+                  className="cart-content-left-box-detail"
+                  onClick={() => {
+                    navigate(
+                      `/detailpg/${item?.text?.stringValue}?id=${item?.id?.integerValue}`
+                    );
+                  }}
+                >
+                  <div className="left-box-img">
+                    <img
+                      src={item.image.arrayValue.values[0].stringValue}
+                      alt="loading"
+                    />
+                  </div>
+                  <div className="left-box-detail">
+                    <p>Price (1 item)</p>
+                    <h4>{item.text.stringValue}</h4>
+                    <p>In stock</p>
+                    <h4>{item.price.stringValue}</h4>
+                    <p>Delivery by Wed Aug 10 | Free₹40</p>
+                    <select name="" id="">
+                      <option value="0">Qty</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             ))}
