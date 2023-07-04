@@ -145,7 +145,9 @@ function Index() {
             <button className="btn" onClick={addCart}>
               Add to Cart
             </button>
+            <a href="/add">
             <button className="btn2">Buy Now</button>
+            </a>
           </div>
         </div>
       </div>

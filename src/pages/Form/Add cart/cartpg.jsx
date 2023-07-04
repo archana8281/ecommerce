@@ -10,7 +10,7 @@ function Cart() {
 
   useEffect(() => {
     setCartview(JSON.parse(localStorage.getItem("cartview")));
-  }, [cartView]);
+  }, []);
 
   const cartOut = (indexVal) => {
     if (indexVal > -1) {
