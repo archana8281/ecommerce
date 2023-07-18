@@ -2,7 +2,7 @@ import about from "../pages/About/about";
 import career from "../pages/Career/career";
 import contact from "../pages/Contact/contact";
 import faq from "../pages/FAQ/faq";
-import Collection from "../pages/Topoffer/top";
+import Collection from "../pages/Nanoffer/top";
 import info from "../pages/detail/detail";
 import Home from "../pages/home";
 import LOGIN from "../pages/Authent/authent";

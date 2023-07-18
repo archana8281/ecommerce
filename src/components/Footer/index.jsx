@@ -72,7 +72,7 @@ function Footer() {
             </div>
          </div>
           <hr />
-          <div style={{textAlign:"center",color:"white"}}>© 2007-2022 shopindeed.com</div>
+          <div style={{textAlign:"center",color:"white"}}>© 2007-2022 shopindeed.com </div>
         </div>
       </div>
     </>

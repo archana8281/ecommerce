@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Offer, RVIEW } from "../../utils/offer";
+import { Offer } from "../../utils/offer";
 import { useNavigate } from "react-router-dom";
 
 function Brand() {
@@ -18,11 +18,11 @@ function Brand() {
       );
       const data = await response.json();
       setbrandItem(data.documents);
+      // console.log({brandItem});
     };
     brandFetch();
   }, []);
-
-  //
+  
   const toggleView = () => {
     setView(!view);
   };
@@ -37,7 +37,7 @@ function Brand() {
           <h3>Top Offer</h3>
           <hr className="top-line" />
           <div className="top-list">
-            {Offer.map((item) => (
+            {Offer.map((item)=>(
               <div className="item">
                 <img src={item.image} alt="loading" />
                 <div className="item-content">
@@ -55,10 +55,10 @@ function Brand() {
             <h3>Recently Viewed Brand</h3>
             <hr className="deal-line" />
             <div className="deal-row">
-              {detailView.map((item1) => (
+              {detailView.map((item1)=>(
                 <div
                   className="deal-item"
-                  onClick={() => {
+                  onClick={()=>{
                     navigate(
                       `/detailpg/${item1?.text?.stringValue}?id=${item1?.id?.integerValue}`
                     );
@@ -83,7 +83,7 @@ function Brand() {
           <div className="deal-row">
             {show &&
               show?.length !== 0 &&
-              show.map((item) => (
+              show.map((item)=>(
                 <div
                   className="deal-item"
                   onClick={() => {
@@ -107,7 +107,7 @@ function Brand() {
               ))}
 
             {view &&
-              show1.map((item) => (
+              show1.map((item)=>(
                 <div
                   className="deal-item"
                   onClick={() => {
@@ -132,7 +132,7 @@ function Brand() {
               ))}
           </div>
           <a className="view" onClick={toggleView}>
-            {view ? "Close" : "View All"}
+            { view ? "Close" : "View All" }
           </a>
         </div>
       </div>

@@ -8,7 +8,7 @@ function OFFER() {
         <h3>Top Offer</h3>
         <hr className="top-line" />
         <div className="top-list">
-          {Offer.map((item) => (
+          {Offer.map((item)=>(
             <div className="item">
               <img src={item.image} alt="loading" />
               <div className="item-content">
